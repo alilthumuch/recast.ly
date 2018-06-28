@@ -1,28 +1,44 @@
 class App extends React.Component {
   constructor (props) {
     super(props);
-    
     this.state = {
+      value: '',
       video: window.exampleVideoData[0],
       videos: window.exampleVideoData
     };
+
+    var options = {
+      key: window.YOUTUBE_API_KEY,
+      max: 5,
+      query: ' '
+    };
+
+    this.handleOnChange = this.handleOnChange.bind(this);
   }
-  
   
   onListItemClick(video) {
     this.setState({
       video: video
     });
   }
+
+  handleOnChange(event) {
+    this.setState({value: event.target.value});
+    this.onSearch(this.state['value']);
+  }
   
-  onSearchClick (search) {
-    var options = {key: window.YOUTUBE_API_KEY,
-      maxResults: '5',
-      part: 'snippet',
-      q: search,
-      type: 'video'};
+  onSearch (event) {
+    var options = {
+      key: window.YOUTUBE_API_KEY,
+      max: 5,
+      query: event};
     var that = this;
-    searchYouTube(options, function(data) {that.setState({videos: data.items, video: data.items[0]})});
+    //setState automatically trigger render()
+    this.props.searchYouTube(options, function(data) { that.setState({videos: data, video: data[0]}); });
+  }
+
+  componentDidMount() {
+    this.onSearch();
   }
   
   render () {
@@ -30,7 +46,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <Search onClick={this.onSearchClick.bind(this)}/>
+            <Search onClick={this.handleOnChange} value={this.state.value} onChange={this.handleOnChange}/>
           </div>
         </nav>
         <div className="row">
@@ -44,7 +60,7 @@ class App extends React.Component {
       </div>
     );
   }
-};
+}
 
 // In the ES6 spec, files are "modules" and do not share a top-level scope
 // `var` declarations will only exist globally where explicitly defined
