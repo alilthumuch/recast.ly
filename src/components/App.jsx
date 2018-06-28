@@ -23,8 +23,9 @@ class App extends React.Component {
   }
 
   handleOnChange(event) {
+    //console.log(event.target.value);
     this.setState({value: event.target.value});
-    this.onSearch(this.state['value']);
+    this.onSearch(event.target.value);
   }
   
   onSearch (event) {
