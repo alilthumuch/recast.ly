@@ -5,7 +5,8 @@ var searchYouTube = (options, callback) => {
     maxResults: options.max,
     q: options.query,
     type: 'video',
-    part: 'snippet'
+    part: 'snippet',
+    safeSearch: 'strict'
   };
   //$.get(link, data, callback function *success, failure)
   

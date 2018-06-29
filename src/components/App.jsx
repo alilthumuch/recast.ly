@@ -23,7 +23,6 @@ class App extends React.Component {
   }
 
   handleOnChange(event) {
-    //console.log(event.target.value);
     this.setState({value: event.target.value});
     this.onSearch(event.target.value);
   }
@@ -47,7 +46,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <Search onClick={this.handleOnChange} value={this.state.value} onChange={this.handleOnChange}/>
+            <Search onChange={this.handleOnChange}/>
           </div>
         </nav>
         <div className="row">
