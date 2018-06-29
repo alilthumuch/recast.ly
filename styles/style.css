@@ -1,11 +1,13 @@
 @import url("http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
 
 body {
-  background: #f1f1f1;
+  background: #f442f1;  
+  background-image: url("https://media.giphy.com/media/13U40NKpVXvYpG/giphy.gif");
+  background-size: cover;
 }
 
 .navbar {
-  background: #fff;
+  background: transparent;
   margin-bottom: 20px;
 }
 
@@ -21,7 +23,8 @@ body {
 
 .search-bar .form-control {
   border-radius: 2px;
-  width: 80%
+  width: 80%;
+  color: rgb(255, 102, 204);
 }
 .search-bar .btn {
   border-radius: 2px;
@@ -32,8 +35,12 @@ body {
 }
 
 .search-bar .btn:hover {
-  border-color: #c6c6c6;
-  background: #f0f0f0;
+  /*border-color: #c6c6c6;*/
+  background-image: url("https://orig00.deviantart.net/5e08/f/2013/264/f/3/hello_kitty_png_by_snsdmiho22-d6n5vej.png");
+  background-size: 20%;
+ /* background-repeat: no-repeat;*/
+  background-position: center;
+  /*background: red;*/
   box-shadow: 0 1px 0 rgba(0,0,0,0.10);
 }
 
@@ -42,15 +49,16 @@ body {
 }
 
 .video-player-details {
-  background: #fff;
+  background: rgb(255, 192, 203, 0.7);
   padding: 8px;
   border: 0;
   box-shadow: 0 1px 2px rgba(0,0,0,.1);
   margin-top: 10px;
+  font-family: fantasy;
 }
 
 .video-list {
-  background: #fff;
+  background: rgb(186, 48, 183, 0.3);
   padding: 8px;
   border: 0;
   box-shadow: 0 1px 2px rgba(0,0,0,.1);
@@ -62,8 +70,13 @@ body {
   padding: 8px;
 }
 
+.video-list-entry:hover {
+  background: pink;
+}
+
 .video-list-entry-title {
   font-weight: bold;
+  font-family: fantasy;
 }
 
 .video-list-entry-title:hover {
@@ -74,6 +87,7 @@ body {
 .video-list-entry-detail {
   font-size: 12px;
   color: #999;
+  font-family: fantasy;
 }
 
 .loading {
